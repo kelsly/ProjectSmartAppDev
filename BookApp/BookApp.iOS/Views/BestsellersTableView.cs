@@ -33,5 +33,11 @@ namespace BookApp.iOS
                 .To(vm => vm.ParentViewModel.NavigateToDetailCommand);
             set.Apply();
         }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            this.NavigationController.SetNavigationBarHidden(true, false);
+            base.ViewWillAppear(animated);
+        }
     }
 }

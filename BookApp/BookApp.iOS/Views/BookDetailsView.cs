@@ -38,5 +38,12 @@ namespace BookApp.iOS
                 .To(vm => vm.SaveToLibraryCommand);
             set.Apply();
         }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            this.NavigationController.SetNavigationBarHidden(false, false);
+            this.NavigationController.PreferredStatusBarStyle();
+            base.ViewWillAppear(animated);
+        }
     }
 }

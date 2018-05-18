@@ -29,20 +29,27 @@ namespace BookApp.iOS
 
         private void CreateTabs()
         {
-            var viewControllers = new UIViewController[]
+            try
             {
+                var viewControllers = new UIViewController[]
+                {
                 CreateSingleTab("Bestsellers", ViewModel.BestsellersTableVM),
-                CreateSingleTab("Search", ViewModel.SearchBooksTableVM)
-            };
+                CreateSingleTab("Search", ViewModel.SearchBooksTableVM),
+                CreateSingleTab("Library", ViewModel.LibraryTableVM)
+                };
 
-            ViewControllers = viewControllers;
-            SelectedViewController = ViewControllers[0];
-            NavigationItem.Title = SelectedViewController.Title;
+                ViewControllers = viewControllers;
+                SelectedViewController = ViewControllers[0];
+                NavigationItem.Title = SelectedViewController.Title;
 
-            ViewControllerSelected += (o, e) =>
+                ViewControllerSelected += (o, e) =>
+                {
+                    NavigationItem.Title = TabBar.SelectedItem.Title;
+                };
+            } catch (Exception e)
             {
-                NavigationItem.Title = TabBar.SelectedItem.Title;
-            };
+                throw e;
+            }
         }
 
         private UIViewController CreateSingleTab(string tabName, MvxViewModel tabViewModel)

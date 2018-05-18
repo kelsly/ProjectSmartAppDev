@@ -9,6 +9,10 @@
       <LogicalName>Main.storyboardc/2592-view-2593.nib</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
+    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool-link\Main.storyboardc\4101-view-4102.nib">
+      <LogicalName>Main.storyboardc/4101-view-4102.nib</LogicalName>
+      <Optimize>false</Optimize>
+    </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool-link\Main.storyboardc\698-view-699.nib">
       <LogicalName>Main.storyboardc/698-view-699.nib</LogicalName>
       <Optimize>false</Optimize>
@@ -27,6 +31,10 @@
     </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool-link\Main.storyboardc\Info.plist">
       <LogicalName>Main.storyboardc/Info.plist</LogicalName>
+      <Optimize>false</Optimize>
+    </_BundleResourceWithLogicalName>
+    <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool-link\Main.storyboardc\LibraryTableView.nib">
+      <LogicalName>Main.storyboardc/LibraryTableView.nib</LogicalName>
       <Optimize>false</Optimize>
     </_BundleResourceWithLogicalName>
     <_BundleResourceWithLogicalName Include="obj\iPhoneSimulator\Debug\ibtool-link\Main.storyboardc\SearchBooksTableView.nib">

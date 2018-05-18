@@ -14,19 +14,29 @@ namespace BookApp.Core.ViewModels
 
         private readonly Lazy<BestsellersTableViewModel> _bestsellersTableViewModel;
         private readonly Lazy<SearchBooksTableViewModel> _searchBooksTableViewModel;
+        private readonly Lazy<LibraryTableViewModel> _libraryTableViewModel;
 
         public BestsellersTableViewModel BestsellersTableVM => _bestsellersTableViewModel.Value;
         public SearchBooksTableViewModel SearchBooksTableVM => _searchBooksTableViewModel.Value;
+        public LibraryTableViewModel LibraryTableVM => _libraryTableViewModel.Value;
 
         public BooksTabViewModel(IBookService bookService)
         {
-            _bookService = bookService;
+            try
+            {
+                _bookService = bookService;
 
-            _bestsellersTableViewModel = new Lazy<BestsellersTableViewModel>(Mvx.IocConstruct<BestsellersTableViewModel>);
-            _searchBooksTableViewModel = new Lazy<SearchBooksTableViewModel>(Mvx.IocConstruct<SearchBooksTableViewModel>);
+                _bestsellersTableViewModel = new Lazy<BestsellersTableViewModel>(Mvx.IocConstruct<BestsellersTableViewModel>);
+                _searchBooksTableViewModel = new Lazy<SearchBooksTableViewModel>(Mvx.IocConstruct<SearchBooksTableViewModel>);
+                _libraryTableViewModel = new Lazy<LibraryTableViewModel>(Mvx.IocConstruct<LibraryTableViewModel>);
 
-            BestsellersTableVM.ParentViewModel = this;
-            SearchBooksTableVM.ParentViewModel = this;
+                BestsellersTableVM.ParentViewModel = this;
+                SearchBooksTableVM.ParentViewModel = this;
+                LibraryTableVM.ParentViewModel = this;
+            } catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public MvxCommand<Book> NavigateToDetailCommand

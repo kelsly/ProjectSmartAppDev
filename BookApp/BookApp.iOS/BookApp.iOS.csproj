@@ -60,6 +60,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrap\FilePluginBootstrap.cs" />
+    <Compile Include="Views\LibraryTableView.cs" />
+    <Compile Include="Views\LibraryTableView.designer.cs">
+      <DependentUpon>LibraryTableView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\SearchBooksTableView.cs" />
     <Compile Include="Views\SearchBooksTableView.designer.cs">
       <DependentUpon>SearchBooksTableView.cs</DependentUpon>

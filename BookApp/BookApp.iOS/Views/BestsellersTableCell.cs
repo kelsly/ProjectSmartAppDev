@@ -23,9 +23,9 @@ namespace BookApp.iOS
             base.LayoutSubviews();
 
             MvxFluentBindingDescriptionSet<BestsellersTableCell, Book> set = new MvxFluentBindingDescriptionSet<BestsellersTableCell, Book>(this);
-            set.Bind(TextLabel).To(res => res.volumeInfo.title);
-            set.Bind(DetailTextLabel).To(res => res.volumeInfo.authors[0]);
-            set.Bind(ImageView)
+            set.Bind(lblTitle).To(res => res.volumeInfo.title);
+            set.Bind(lblAuthor).To(res => res.volumeInfo.authors[0]);
+            set.Bind(imgCover)
                 .For(img => img.Image)
                 .To(res => res.volumeInfo.imageLinks.smallThumbnail)
                 .WithConversion<StringToImageConverter>();

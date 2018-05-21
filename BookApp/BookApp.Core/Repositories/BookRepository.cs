@@ -20,7 +20,7 @@ namespace BookApp.Core.Repositories
         }
 
         public Task<RootObjectBooks> SearchBooks(string keyword, int index)
-        { 
+        {
             string url = String.Format("{0}{1}{2}{3}{4}{5}{6}", _BASEURL, _APIKEY, "&q=", keyword, _PROJECTION, "&printType=books&maxResults=20&startIndex=", index);
             return GetAsync<RootObjectBooks>(url);
         }

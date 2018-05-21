@@ -15,6 +15,8 @@ namespace BookApp.Core.Services
         private readonly IBestsellerRepository _bestsellerRepository;
         private readonly IMvxFileStore _fileStore;
         private List<Book> _myLibrary;
+        //private List<Book> _searchedBooks;
+        private List<Book> _error = new List<Book>() { new Book() { volumeInfo = new VolumeInfo() { title = "Something went wrong", authors = new List<string>() { "Please come back later" }, imageLinks = new ImageLinks() { thumbnail = "error" } }, id = "error" } };
 
         public BookService(IBookRepository bookRepository, IBestsellerRepository bestsellerRepository, IMvxFileStore fileStore)
         {
@@ -23,10 +25,30 @@ namespace BookApp.Core.Services
             _fileStore = fileStore;
         }
 
-        public async Task<List<Book>> SearchBooks(string keyword, int index)
+        public async Task<List<Book>> SearchBooks(string keyword, int page)
         {
-            RootObjectBooks rb = await _bookRepository.SearchBooks(keyword, index);
-            return rb.books;
+            try
+            {
+                //RootObjectBooks rb = await _bookRepository.SearchBooks(keyword, page*20);
+
+                //if (page == 0) _searchedBooks = rb.books;
+                //else _searchedBooks.AddRange(rb.books);
+
+                //return _searchedBooks;
+                List<Book> b = new List<Book>();
+
+                for (int i = 0; i <= page; i++)
+                {
+                    RootObjectBooks rb = await _bookRepository.SearchBooks(keyword, i * 20);
+                    b.AddRange(rb.books);
+                }
+
+                return b;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public async Task<List<Book>> GetBestsellers()
@@ -61,7 +83,7 @@ namespace BookApp.Core.Services
             }
             catch (Exception e)
             {
-                throw e;
+                return _error;
             }
         }
 

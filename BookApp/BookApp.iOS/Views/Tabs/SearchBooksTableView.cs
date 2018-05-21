@@ -42,6 +42,11 @@ namespace BookApp.iOS
                 .To(vm => vm.ParentViewModel.NavigateToDetailCommand);
             set.Bind(btnSearch)
                 .To(vm => vm.SearchBooksCommand);
+            set.Bind(btnLoadMore)
+                .To(vm => vm.LoadMoreCommand);
+            set.Bind(btnLoadMore)
+                .For(v => v.Enabled)
+                .To(vm => vm.HasTwentyResults);
             set.Apply();
 
         }

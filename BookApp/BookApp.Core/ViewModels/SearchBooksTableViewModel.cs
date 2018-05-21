@@ -10,7 +10,7 @@ namespace BookApp.Core.ViewModels
 {
     public class SearchBooksTableViewModel: MvxViewModel
     {
-        private int index;
+        private int page;
 
         private string _searchvalue;
 
@@ -33,24 +33,34 @@ namespace BookApp.Core.ViewModels
             set { _searchResult = value; RaisePropertyChanged(() => SearchResult); }
         }
 
+        private bool _hasTwentyResults;
+
+        public bool HasTwentyResults
+        {
+            get { return _hasTwentyResults; }
+            set { _hasTwentyResults = value; RaisePropertyChanged(() => HasTwentyResults); }
+        }
+
+
         protected readonly IBookService _bookService;
 
         public SearchBooksTableViewModel(IBookService bookService)
         {
             _bookService = bookService;
+            HasTwentyResults = false;
         }
 
         private async void SearchBooks()
         {
-            index = 0;
-            if (SearchValue.Length > 2)
-            {
-                SearchResult = await _bookService.SearchBooks(SearchValue, index);
-            } else
-            {
-                SearchResult = null;
-            }
-                        
+            page = 0;
+            SearchResult = await _bookService.SearchBooks(SearchValue, page);
+            checkHasTwentyResults(SearchResult);          
+        }
+
+        private void checkHasTwentyResults(List<Book> books)
+        {
+            if (books.Count < ((page+1)*20)) HasTwentyResults = false;
+            else HasTwentyResults = true;
         }
 
         public MvxCommand SearchBooksCommand
@@ -67,6 +77,18 @@ namespace BookApp.Core.ViewModels
                 _parentViewModel = value;
                 RaisePropertyChanged(() => ParentViewModel);
             }
+        }
+
+        public MvxCommand LoadMoreCommand
+        {
+            get { return new MvxCommand(() => LoadMore()); }
+        }
+
+        private async void LoadMore()
+        {
+            page += 1;
+            SearchResult = await _bookService.SearchBooks(SearchValue, page);
+            checkHasTwentyResults(SearchResult);
         }
     }
 }

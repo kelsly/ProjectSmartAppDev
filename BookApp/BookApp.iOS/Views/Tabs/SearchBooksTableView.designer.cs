@@ -16,6 +16,10 @@ namespace BookApp.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnLoadMore { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnSearch { get; set; }
 
         [Outlet]
@@ -28,6 +32,11 @@ namespace BookApp.iOS
 
         void ReleaseDesignerOutlets ()
         {
+            if (btnLoadMore != null) {
+                btnLoadMore.Dispose ();
+                btnLoadMore = null;
+            }
+
             if (btnSearch != null) {
                 btnSearch.Dispose ();
                 btnSearch = null;

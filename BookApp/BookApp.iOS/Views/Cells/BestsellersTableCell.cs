@@ -27,7 +27,7 @@ namespace BookApp.iOS
             set.Bind(lblAuthor).To(res => res.volumeInfo.authors[0]);
             set.Bind(imgCover)
                 .For(img => img.Image)
-                .To(res => res.volumeInfo.imageLinks.smallThumbnail)
+                .To(res => res.volumeInfo.imageLinks.thumbnail)
                 .WithConversion<StringToImageConverter>();
             set.Apply();
         }

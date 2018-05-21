@@ -20,10 +20,6 @@ namespace BookApp.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton btnAddToWishlist { get; set; }
-
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIImageView imgBook { get; set; }
 
         [Outlet]
@@ -43,11 +39,6 @@ namespace BookApp.iOS
             if (btnAddToLibrary != null) {
                 btnAddToLibrary.Dispose ();
                 btnAddToLibrary = null;
-            }
-
-            if (btnAddToWishlist != null) {
-                btnAddToWishlist.Dispose ();
-                btnAddToWishlist = null;
             }
 
             if (imgBook != null) {

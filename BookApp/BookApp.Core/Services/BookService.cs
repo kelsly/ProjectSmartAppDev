@@ -31,32 +31,39 @@ namespace BookApp.Core.Services
 
         public async Task<List<Book>> GetBestsellers(bool fiction)
         {
-            List<Book> books = new List<Book>();
-            RootObjectBestsellers rootbs;
-            RootObjectBooks b;
-
-            if (fiction) rootbs = await _bestsellerRepository.GetBestsellers("combined-print-fiction");
-            else rootbs = await _bestsellerRepository.GetBestsellers("combined-print-nonfiction");
-
-            foreach (Bestseller bs in rootbs.bestsellers)
+            try
             {
-                for (int i = 0; i < bs.isbns.Count; i++)
-                {
-                    b = await _bookRepository.GetBookByISBN(bs.isbns[i].isbn13);
-                    if (b.totalItems == 0)
-                    {
-                        b = await _bookRepository.GetBookByISBN(bs.isbns[i].isbn10);
-                    }
+                List<Book> books = new List<Book>();
+                RootObjectBestsellers rootbs;
+                RootObjectBooks b;
 
-                    if (b.totalItems == 1)
+                if (fiction) rootbs = await _bestsellerRepository.GetBestsellers("combined-print-fiction");
+                else rootbs = await _bestsellerRepository.GetBestsellers("combined-print-nonfiction");
+
+                foreach (Bestseller bs in rootbs.bestsellers)
+                {
+                    for (int i = 0; i < bs.isbns.Count; i++)
                     {
-                        books.Add(b.books[0]);
-                        i = bs.isbns.Count;
+                        b = await _bookRepository.GetBookByISBN(bs.isbns[i].isbn13);
+                        if (b.totalItems == 0)
+                        {
+                            b = await _bookRepository.GetBookByISBN(bs.isbns[i].isbn10);
+                        }
+
+                        if (b.totalItems == 1)
+                        {
+                            books.Add(b.books[0]);
+                            i = bs.isbns.Count;
+                        }
                     }
                 }
-            }
 
-            return books;
+                return books;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public async Task<Book> GetBookById(string bookId)
@@ -80,12 +87,16 @@ namespace BookApp.Core.Services
                     if (CheckInLibrary(mybook))
                     {
                         _myLibrary.Remove(mybook);
-                        foreach (Book b in _myLibrary)
+                        if (CheckInLibrary(mybook))
                         {
-
-                            if (b.id == mybook.id)
+                            List<Book> l = _myLibrary;
+                            _myLibrary = new List<Book>();
+                            foreach(Book b in l)
                             {
-                                _myLibrary.Remove(b);
+                                if (b.id != mybook.id)
+                                {
+                                    _myLibrary.Add(b);
+                                }
                             }
                         }
                     }

@@ -24,9 +24,6 @@ namespace BookApp.iOS
         {
             try
             {
-                AppCenter.Start("77218566-5b8a-4f35-89a1-980d500dae4f",
-                   typeof(Analytics), typeof(Crashes));
-
                 window = new UIWindow(UIScreen.MainScreen.Bounds);
 
                 var setup = new Setup(this, window);

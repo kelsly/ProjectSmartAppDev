@@ -14,8 +14,16 @@ namespace BookApp.iOS
     [Register ("BestsellersTableView")]
     partial class BestsellersTableView
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnNyt { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnNyt != null) {
+                btnNyt.Dispose ();
+                btnNyt = null;
+            }
         }
     }
 }

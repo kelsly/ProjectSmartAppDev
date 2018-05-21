@@ -12,7 +12,6 @@ namespace BookApp.iOS
     public partial class SearchBooksTableView : MvxViewController<SearchBooksTableViewModel>
     {
         private BestsellersTableViewSource _tableViewSource;
-        //private UISearchBar searchBar;
 
         public SearchBooksTableView()
         {

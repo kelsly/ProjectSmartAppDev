@@ -16,18 +16,20 @@ namespace BookApp.Core.ViewModels
         public List<Book> MyLibrary
         {
             get { return _myLibrary; }
-            set { _myLibrary = value; RaisePropertyChanged(() => MyLibrary); }
+            set {
+                _myLibrary = value;
+                RaisePropertyChanged(() => MyLibrary);
+            }
         }
-
 
         public LibraryTableViewModel(IBookService bookService)
         {
             _bookService = bookService;
 
-            LoadData();
+            loadData();
         }
 
-        private void LoadData()
+        private void loadData()
         {
             MyLibrary = _bookService.GetLibrary();
         }
@@ -41,6 +43,27 @@ namespace BookApp.Core.ViewModels
                 _parentViewModel = value;
                 RaisePropertyChanged(() => ParentViewModel);
             }
+        }
+
+        public IMvxCommand<int> RemoveBookCommand
+        {
+            get
+            {
+                return new MvxCommand<int>(RemoveBook);
+            }
+        }
+
+        private void RemoveBook(int index)
+        {
+            Book b = MyLibrary[index];
+            _bookService.AddBookToLibrary(b);
+            loadData();
+        }
+
+        public override void ViewAppearing()
+        {
+            base.ViewAppearing();
+            loadData();
         }
     }
 }

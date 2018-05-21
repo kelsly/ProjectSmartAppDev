@@ -19,6 +19,8 @@ namespace BookApp.iOS
 
         public override void ViewDidLoad()
         {
+            
+
             _bestsellersTableViewSource = new BestsellersTableViewSource(this.TableView);
 
             base.ViewDidLoad();
@@ -27,11 +29,16 @@ namespace BookApp.iOS
             this.TableView.ReloadData();
 
             MvxFluentBindingDescriptionSet<BestsellersTableView, BestsellersTableViewModel> set = this.CreateBindingSet<BestsellersTableView, BestsellersTableViewModel>();
-            set.Bind(_bestsellersTableViewSource).To(vm => vm.BestsellersList);
+            set.Bind(_bestsellersTableViewSource)
+                .To(vm => vm.BestsellersList);
             set.Bind(_bestsellersTableViewSource)
                 .For(src => src.SelectionChangedCommand)
                 .To(vm => vm.ParentViewModel.NavigateToDetailCommand);
+            set.Bind(btnNyt)
+                .To(vm => vm.NavigateToWebCommand);
             set.Apply();
+
+            btnNyt.SetImage(UIImage.FromFile("poweredby_nytimes_200a.png"), UIControlState.Normal);
         }
 
         public override void ViewWillAppear(bool animated)

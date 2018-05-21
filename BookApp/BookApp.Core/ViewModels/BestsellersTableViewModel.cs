@@ -43,6 +43,25 @@ namespace BookApp.Core.ViewModels
             }
         }
 
-        
+        public MvxCommand NavigateToWebCommand
+        {
+            get
+            {
+                return new MvxCommand(
+                        () =>
+                        {
+                            try
+                            {
+                                ShowViewModel<MyWebViewModel>(new { });
+                            }
+                            catch (Exception e)
+                            {
+                                throw e;
+                            }
+
+                        }
+                    );
+            }
+        }
     }
 }

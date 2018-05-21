@@ -11,8 +11,8 @@ using UIKit;
 
 namespace BookApp.iOS
 {
-    [Register ("LibraryTableView")]
-    partial class LibraryTableView
+    [Register ("MyWebView")]
+    partial class MyWebView
     {
         void ReleaseDesignerOutlets ()
         {

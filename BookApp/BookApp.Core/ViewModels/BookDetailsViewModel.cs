@@ -77,20 +77,25 @@ namespace BookApp.Core.ViewModels
 
         private void makeDescriptionReadable()
         {
-            string des = BookContent.volumeInfo.description;
-
-            while(des.Contains("<"))
+            if (BookContent.volumeInfo.description != null)
             {
-                if (des.IndexOf("<") == 0)
-                {
-                    des = des.Substring(des.IndexOf(">")+1);
-                } else
-                {
-                    des = des.Substring(0, des.IndexOf("<")) + des.Substring(des.IndexOf(">")+1);
-                }
-            }
+                string des = BookContent.volumeInfo.description;
 
-            BookDescription = des;
+                while (des.Contains("<"))
+                {
+                    if (des.IndexOf("<") == 0)
+                    {
+                        des = des.Substring(des.IndexOf(">") + 1);
+                    }
+                    else
+                    {
+                        des = des.Substring(0, des.IndexOf("<")) + des.Substring(des.IndexOf(">") + 1);
+                    }
+                }
+
+                BookDescription = des;
+            }
+            else BookDescription = "NO DESCRIPTION AVAILABLE";
         }
     }
 }

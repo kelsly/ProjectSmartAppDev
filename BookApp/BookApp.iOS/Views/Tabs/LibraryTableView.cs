@@ -19,18 +19,21 @@ namespace BookApp.iOS
 
         public override void ViewDidLoad()
         {
-            _tableViewSource = new BestsellersTableViewSource(this.TableView);
+            _tableViewSource = new BestsellersTableViewSource(MyTableView);
 
             base.ViewDidLoad();
 
             this.TableView.Source = _tableViewSource;
             this.TableView.ReloadData();
 
-            MvxFluentBindingDescriptionSet<LibraryTableView, LibraryTableViewModel> set = this.CreateBindingSet<LibraryTableView, LibraryTableViewModel>();
+            MvxFluentBindingDescriptionSet<LibraryTableView, LibraryTableViewModel> set = new MvxFluentBindingDescriptionSet<LibraryTableView, LibraryTableViewModel>(this);
             set.Bind(_tableViewSource).To(vm => vm.MyLibrary);
             set.Bind(_tableViewSource)
                 .For(src => src.SelectionChangedCommand)
                 .To(vm => vm.ParentViewModel.NavigateToDetailCommand);
+            //set.Bind(_tableViewSource)
+            //    .For(s => s.RemoveRowCommand)
+            //    .To(vm => vm.RemoveBookCommand);
             set.Apply();
         }
 

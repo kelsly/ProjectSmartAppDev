@@ -29,7 +29,7 @@ namespace BookApp.Core.ViewModels
 
         private async void loadData()
         {
-            BestsellersList = await _bookService.GetBestsellers(true);
+            BestsellersList = await _bookService.GetBestsellers();
         }
 
         private BooksTabViewModel _parentViewModel;

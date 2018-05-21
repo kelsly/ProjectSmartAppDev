@@ -1,9 +1,0 @@
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\bin\Debug\netstandard2.0\BookApp.Core.deps.json
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\bin\Debug\netstandard2.0\BookApp.Core.dll
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\bin\Debug\netstandard2.0\BookApp.Core.pdb
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.csproj.CoreCompileInputs.cache
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.AssemblyInfoInputs.cache
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.AssemblyInfo.cs
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.dll
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.pdb
-D:\Private\Documents\School\SAD\Project\ProjectSmartAppDev\BookApp\BookApp.Core\obj\Debug\netstandard2.0\BookApp.Core.csprojResolveAssemblyReference.cache

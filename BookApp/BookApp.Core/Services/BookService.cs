@@ -29,7 +29,7 @@ namespace BookApp.Core.Services
             return rb.books;
         }
 
-        public async Task<List<Book>> GetBestsellers(bool fiction)
+        public async Task<List<Book>> GetBestsellers()
         {
             try
             {
@@ -37,8 +37,7 @@ namespace BookApp.Core.Services
                 RootObjectBestsellers rootbs;
                 RootObjectBooks b;
 
-                if (fiction) rootbs = await _bestsellerRepository.GetBestsellers("combined-print-fiction");
-                else rootbs = await _bestsellerRepository.GetBestsellers("combined-print-nonfiction");
+                rootbs = await _bestsellerRepository.GetBestsellers("hardcover-fiction");
 
                 foreach (Bestseller bs in rootbs.bestsellers)
                 {

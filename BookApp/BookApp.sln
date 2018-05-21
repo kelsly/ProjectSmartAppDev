@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.iOS", "BookApp.iOS\BookApp.iOS.csproj", "{782EC692-76D1-4A1C-B94E-50381A30BBF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Core", "BookApp.Core\BookApp.Core.csproj", "{5A3886D2-5D3D-40F1-8044-46FEA652B76C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookApp.Core", "BookApp.Core\BookApp.Core.csproj", "{5A3886D2-5D3D-40F1-8044-46FEA652B76C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookApp.Tests", "BookApp.Tests\BookApp.Tests.csproj", "{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,18 @@ Global
 		{5A3886D2-5D3D-40F1-8044-46FEA652B76C}.Release|iPhone.Build.0 = Release|Any CPU
 		{5A3886D2-5D3D-40F1-8044-46FEA652B76C}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{5A3886D2-5D3D-40F1-8044-46FEA652B76C}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|iPhone.Build.0 = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{A0B07332-3AAA-4E51-9EE0-98F23F8129C2}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

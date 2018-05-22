@@ -172,6 +172,8 @@
     <BundleResource Include="Resources\Library.png" />
     <BundleResource Include="Resources\Search.png" />
     <BundleResource Include="Resources\poweredby_nytimes_200a.png" />
+    <BundleResource Include="Resources\error.png" />
+    <BundleResource Include="Resources\No_image_available.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookApp.Core\BookApp.Core.csproj">

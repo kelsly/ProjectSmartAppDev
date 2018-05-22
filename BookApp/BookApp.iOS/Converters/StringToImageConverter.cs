@@ -24,11 +24,13 @@ namespace NMCT.Resto.iOS.Converters
             {
                 if (string.IsNullOrWhiteSpace(uri))
                 {
-                    return UIImage.FromBundle("notfound.jpg");
+                    return UIImage.FromBundle("No_image_available.png");
                 }
 
                 else
                 {
+                    if (uri == "error") return UIImage.FromBundle("error.png");
+
                     uri = uri.Substring(0, 4) + "s" + uri.Substring(4);
                     using (var url = new NSUrl(uri))
                     using (var data = NSData.FromUrl(url))

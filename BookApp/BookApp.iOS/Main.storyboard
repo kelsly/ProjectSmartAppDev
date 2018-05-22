@@ -106,11 +106,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3566" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="212" y="227" width="182" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add To Wishlist"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3567" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="212" y="265" width="182" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,7 +118,6 @@
                         <outlet property="imgBook" destination="943" id="name-outlet-943"/>
                         <outlet property="lblDescription" destination="3314" id="name-outlet-3314"/>
                         <outlet property="lblAuthor" destination="3313" id="name-outlet-3313"/>
-                        <outlet property="btnAddToWishlist" destination="3566" id="name-outlet-3566"/>
                         <outlet property="btnAddToLibrary" destination="3567" id="name-outlet-3567"/>
                     </connections>
                 </viewController>
@@ -182,6 +176,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8698" key="tableFooterView">
+                                    <rect key="frame" x="0.0" y="157" width="414" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Load More"/>
+                                </button>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Text" borderStyle="roundedRect" minimumFontSize="17" id="2599" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
                                 <rect key="frame" x="20" y="60" width="289" height="30"/>
@@ -201,6 +200,7 @@
                         <outlet property="btnSearch" destination="2600" id="name-outlet-2600"/>
                         <outlet property="txtSearch" destination="2599" id="name-outlet-2599"/>
                         <outlet property="MyTableView" destination="2596" id="name-outlet-2596"/>
+                        <outlet property="btnLoadMore" destination="8698" id="name-outlet-8698"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2594" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -299,5 +299,7 @@
         <image name="Library.png" width="32" height="32"/>
         <image name="Search.png" width="32" height="32"/>
         <image name="poweredby_nytimes_200a.png" width="200" height="40"/>
+        <image name="error.png" width="500" height="500"/>
+        <image name="No_image_available.png" width="1250" height="1250"/>
     </resources>
 </document>

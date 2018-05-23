@@ -25,7 +25,7 @@ namespace BookApp.iOS
             set.Bind(lblTitle)
                 .To(vm => vm.BookContent.volumeInfo.title);
             set.Bind(imgBook)
-                .To(vm => vm.BookContent.volumeInfo.imageLinks.thumbnail)
+                .To(vm => vm.ImageLink)
                 .WithConversion<StringToImageConverter>();
             set.Bind(lblDescription)
                 .To(vm => vm.BookDescription);

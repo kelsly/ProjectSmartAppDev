@@ -36,10 +36,19 @@ namespace BookApp.Core.ViewModels
             set { _buttonLibraryText = value; RaisePropertyChanged(() => ButtonLibraryText); }
         }
 
+        private string _imageLink;
+
+        public string ImageLink
+        {
+            get { return _imageLink; }
+            set { _imageLink = value; }
+        }
+
 
         public async void Init(string bookId)
         {
             BookContent = await _bookService.GetBookById(bookId);
+            if (BookContent.volumeInfo.imageLinks != null) ImageLink = BookContent.volumeInfo.imageLinks.thumbnail;
             makeDescriptionReadable();
             CheckInLibrary();
         }

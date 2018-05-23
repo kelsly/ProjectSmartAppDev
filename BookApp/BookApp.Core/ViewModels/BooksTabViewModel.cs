@@ -48,7 +48,7 @@ namespace BookApp.Core.ViewModels
                         {
                             try
                             {
-                                ShowViewModel<BookDetailsViewModel>(new { bookId = selectedBook.id });
+                                if (selectedBook.id != "error") ShowViewModel<BookDetailsViewModel>(new { bookId = selectedBook.id });
                             }
                             catch (Exception e)
                             {

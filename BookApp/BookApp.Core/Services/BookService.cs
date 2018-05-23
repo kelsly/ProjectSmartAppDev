@@ -37,17 +37,20 @@ namespace BookApp.Core.Services
                 //return _searchedBooks;
                 List<Book> b = new List<Book>();
 
-                for (int i = 0; i <= page; i++)
+                if (!string.IsNullOrWhiteSpace(keyword))
                 {
-                    RootObjectBooks rb = await _bookRepository.SearchBooks(keyword, i * 20);
-                    b.AddRange(rb.books);
+                    for (int i = 0; i <= page; i++)
+                    {
+                        RootObjectBooks rb = await _bookRepository.SearchBooks(keyword, i * 20);
+                        b.AddRange(rb.books);
+                    }
                 }
 
                 return b;
             }
             catch (Exception e)
             {
-                throw e;
+                return _error;
             }
         }
 
